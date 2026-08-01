@@ -1,0 +1,319 @@
+:root{
+    
+}
+
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+img{
+    width: 100%;
+
+}
+li{
+    list-style-type:none;
+}
+a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+/*navbar*/
+nav{
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    justify-content: space-between;
+    
+}
+.nav-left{
+    background-color: white;
+    justify-content: flex-start;
+}
+
+.nav-center ul{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+.nav-center ul li {
+       gap:10px
+}
+
+
+.nav-right{
+    /* justify-content: flex-end; */
+    gap:30px
+   
+}
+
+.nav-right button{
+     padding: 10px;
+     border: none;
+     border-radius: 6px;   
+}
+.nav-right .login{
+     background-color: white;
+}
+.nav-right .free{
+    background-color: rgb(71, 71, 252);
+    color: white;
+}
+/*hero*/
+
+.hero{
+    margin-top: 70px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.hero .hero-img img{
+     height: 80px;
+     width: 80px;
+     right: 30px;
+     margin: 0px -7px;
+     
+}
+.hero .hero-img{
+    margin-right: 100px;
+}
+
+.hero-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.hero-heading h1{
+    font-size: 6rem;
+    flex:1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 25px;
+}
+.hero-heading h1 span {
+   background-color: aqua;
+   border-radius: 70px;
+   font-family:cursive;
+   padding:10px;
+   
+}
+.hero-heading p{
+    font-size: 25px;
+    margin-bottom: 35px;
+}
+
+.hero-heading .hero-btn{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap:20px;
+    margin-right: 80px;
+}
+
+.hero-heading .hero-btn button{
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    
+}
+.hero-heading .hero-btn .btn1{
+    background-color: blue;
+    color: white;
+}
+.hero-heading .hero-btn .btn2{
+    background-color: aliceblue;
+    color: blue;
+}
+.hero .hero-video{
+    margin-top: 100px;
+   
+}
+.hero .hero-video video{
+    width: 50%;
+     box-shadow: 0  10px 10px rgb(134, 134, 134);
+}
+.hero .hero-txt{
+    
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items:last baseline;
+   
+}
+.hero .hero-txt p{
+     color: rgb(116, 114, 114);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+}
+
+.hero-partner{
+   width: 100%;
+   padding:0 20%;
+}
+.partner{
+    background-color: rgb(255, 255, 255);
+
+
+}
+.partner i{
+    color:grey ;
+    font-size: 5px;
+}
+.partner1{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap:2px;
+    margin-bottom: 10px;
+}
+
+.partner1 div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:3px;
+}
+.partner2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2px;
+}
+.partner2 div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:3px;
+}
+
+
+/*container*/
+.container{
+   width: 100%;
+   
+}
+.container2{
+    padding: 20px 20%;
+    margin-left: 40px;
+    /* margin: 0 7%; */
+   
+}
+.container3{
+    display: flex;
+    flex-direction: column;
+
+}
+.container3 h1{
+    font-size: 60px;
+    text-align: start;
+}
+.container4{
+    display: flex;
+  
+    /* align-items: center; */
+    /* justify-content: center; */
+    gap:40px
+}
+.container4 .container4-one{
+    display: flex;
+    flex-direction: column;
+}
+.container4 .container4-one .arrow,
+.container4 .container4-one .card{
+    display: flex;
+}
+
+.container4 .container4-one .meetings,
+.container4 .container4-one .meeting-shed
+{
+    display: flex;
+}
+
+.container4-one{
+  
+    padding: 50px 6%;
+    border-radius: 25px;
+    border:none;
+    background-color: aliceblue;
+}
+.container4-one .arrow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:10px
+}
+.container4-one p{
+       align-items: start;
+       font-size: 20px;
+       margin-bottom: 20px;
+}
+.arrow{
+     margin-bottom: 20px;
+}
+.meetings{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+
+/*automate*/
+.automate{
+    background-color: rgb(255, 255, 255);
+    height: 300px;
+}
+.automate1{
+    margin:0 21%;
+    background-color:aliceblue;
+    height: 250px;
+    border-radius: 20px;
+    
+}
+
+
+/* .notion{
+     
+} */
+
+.members{
+    background-color: aliceblue;
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+}
+.mem-cards{
+     display: flex;
+     gap:20px;
+     overflow: hidden;
+     
+     
+     
+     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
