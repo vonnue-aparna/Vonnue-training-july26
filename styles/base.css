@@ -1,0 +1,93 @@
+:root {
+  --color-white: #ffffff;
+  --color-transparent: #ffffff00;
+  --color-gray-200: #f6f5f4;
+  --color-gray-500: #78736f;
+  --color-gray-800: #31302e;
+  --color-blue-600: #0075de;
+  --color-alpha-black-800: #000000e5;
+  --color-alpha-black-900: #000000f2;
+  --color-background-base: var(--color-white);
+
+  --color-text-strong: var(--color-alpha-black-900);
+
+  --border-color-regular: rgb(0 0 0/8%);
+  --border-radius-300: 0.3125rem;
+
+  --color-button-primary-background: var(--color-blue-600);
+  --color-button-primary-text: var(--color-white);
+  --color-button-primary-border: var(--color-transparent);
+
+  --color-interaction-control-border: var(--color-alpha-black-800);
+
+  --dimension-spacing-16: 1rem;
+  --dimension-spacing-20: 1.25rem;
+  --dimension-spacing-24: 1.5rem;
+  --dimension-spacing-28: 1.75rem;
+  --dimension-spacing-32: 2rem;
+  --dimension-spacing-48: 3rem;
+
+  --font-family-primary-sans: NotionInter;
+  --font-family-fallback-sans:
+    Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+
+  --border-radius-600: 0.625rem;
+
+  --font-weight-bold: 700;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-size-100: 0.875rem;
+  --font-size-400: 1.375rem;
+  --font-size-500: 1.625rem;
+  --font-size-700: 2.625rem;
+  --font-line-height-100: var(--dimension-spacing-20);
+  --font-line-height-400: var(--dimension-spacing-28);
+  --font-line-height-500: var(--dimension-spacing-32);
+  --font-line-height-700: var(--dimension-spacing-48);
+
+  --form-checkbox-offset: 14px;
+
+  --font-family-sans:
+    var(--font-family-primary-sans), var(--font-family-fallback-sans);
+
+  --typography-serif-200-regular-letter-spacing: 0;
+  --typography-sans-400-bold-font: var(--font-weight-bold)
+    var(--font-size-400) / var(--font-line-height-400) var(--font-family-sans);
+  --typography-sans-500-bold-font: var(--font-weight-bold)
+    var(--font-size-500) / var(--font-line-height-500) var(--font-family-sans);
+
+  --typography-sans-700-bold-font: var(--font-weight-bold)
+    var(--font-size-700) / var(--font-line-height-700) var(--font-family-sans);
+  --typography-sans-100-regular-font: var(--font-weight-regular)
+    var(--font-size-100) / var(--font-line-height-100) var(--font-family-sans);
+  --typography-sans-100-regular-letter-spacing: 0;
+  --typography-sans-400-bold-letter-spacing: -0.015625rem;
+  --typography-sans-500-bold-letter-spacing: -0.0390625rem;
+
+  --typography-color: var(--color-white);
+
+  --z-index-header: 100;
+
+  --global-navigation-height: 64px;
+  --nav-top-padding: 14px;
+}
+
+@font-face {
+  font-family: NotionInter;
+  src:
+    url(/front-static/fonts/NotionInter-Regular.woff2) format("woff2"),
+    url(/front-static/fonts/NotionInter-Regular.woff) format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  text-decoration: none;
+}
