@@ -1,0 +1,165 @@
+:root {
+    --grid-column-size: minmax(0,1fr);
+}
+
+@font-face {
+    font-family: NotionInter;
+    src: url(./assets/NotionInter-Regular.woff2) format("woff2"), url(./assets/NotionInter-Regular.woff2) format("woff");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1.5;
+    font-family: NotionInter;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 14px 16px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-height: 36px;
+}
+
+.get-notion-free-btn {
+    display: flex;
+    align-items: center;
+    min-height: 2.25rem;
+    padding: .25rem .875rem;
+    background-color: #0075de;
+    color: #ebf4fc;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.hero-team {
+    inline-size: 100%;
+}
+
+
+.hero-section-main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 2.5rem 1rem 2.5rem 1rem;
+    /* padding: 1rem; */
+    
+}
+
+.hero-team-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    inline-size: 100%;
+    gap: 10;
+}
+
+.hero-team-icon {
+    align-self: 10px;
+    margin-inline: -5px;
+    isolation: isolate;
+}
+
+.hero-team-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.hero-content-header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content-header h1 {
+    font-weight: bolder;
+}
+
+.hero-content-header-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 280px;
+}
+
+.hero-section-notion-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 37.6px;
+    padding: .25rem .875rem;
+    background-color: #0075de;
+    color: #ebf4fc;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.hero-section-demo-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.25rem;
+    padding: .25rem .875rem;
+    background-color: #e6f3fe;
+    color: #0961ae;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.hero-horizontal-animation {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 4px 0px;
+    overflow: hidden;
+
+}
+
+.hero-horizontal-animation-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 116px;
+    height: 36px;
+    padding: 6px 8px;
+}
+
+.hero-horizontal-animation-item > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes logoWallMarquee_marqueePolygon__N7Zak {
+    100% {
+       offset-distance: 50%;
+    }
+}
