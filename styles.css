@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+body {
+  color: black;
+  cursor: default;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  text-wrap-mode: initial;
+  text-wrap-style: pretty;
+  font-variant-numeric: lining-nums;
+}
+
+.nav_element {
+  height: auto;
+  padding: 14px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+  gap: 1rem;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  overflow-inline: auto;
+  scrollbar-width: none;
+}
+
+.nav_links {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: center;
+}
+
+a {
+  display: flex;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  padding: 5px 10px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  white-space-collapse: collapse;
+  text-wrap-mode: nowrap;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.nav_buttons {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.button_notion {
+  color: #ffffff;
+  background-color: #0075de;
+  border-color: #ffffff00;
+  font-weight: 500;
+  min-height: 36px;
+  padding: 4px 14px;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: auto;
+}
+
+.icon {
+  font-size: 10px;
+}
+svg {
+  fill: black;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (width < 1200px) {
+  .nav_element {
+    grid-template-columns: 1fr 1fr;
+  }
+  .nav_links {
+    display: none;
+  }
+}
+
+@media screen and (width < 840px) {
+  .nav_element {
+    grid-template-columns: 1fr 1fr;
+    padding: 14px 16px;
+  }
+  .nav_links {
+    display: none;
+  }
+  .button_link {
+    display: none;
+  }
+}
+
+/* HERO SECTION */
+
+.hero_container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 75px;
+  margin-bottom: 75px;
+  justify-content: center;
+}
+
+.user_icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  inline-size: 100%;
+}
+
+.user_icons img {
+  width: 72px;
+  height: 72px;
+  margin: 0 -4px;
+}
+
+.hero_container h1 {
+  margin-top: 30px;
+  font-size: 96px;
+  line-height: 100px;
+  letter-spacing: 1px;
+  text-wrap-mode: initial;
+  text-wrap-style: balance;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.highlight {
+  font-size: 72px;
+  font-weight: 600;
+  background-color: #e6f3fe;
+  padding: 8px 20px;
+  border-radius: 635rem;
+}
+
+.hero_container p {
+  font-size: 20px;
+  margin: 0px 0px 20px;
+  text-align: center;
+  text-wrap-mode: initial;
+  text-wrap-style: balance;
+  color: #000000e5;
+}
+.hero_cta {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.notion {
+  font-size: 15px;
+  padding: 7px 18px;
+}
+.demo {
+  font-size: 15px;
+  color: #005bab;
+  background-color: #e6f3fe;
+  padding: 7px 18px;
+}
+.video_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  margin: 0 500px;
+}
+
+video {
+  /* display: block; */
+  width: 100%;
+  height: unset;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.226);
+}
+
+/* TRUSTED DEVICES */
