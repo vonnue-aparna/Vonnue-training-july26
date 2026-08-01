@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact our Sales Team – Notion</title>
+    <link rel="icon" href="./assets/favicon.ico" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="./assets/favicon.ico" alt=""/>
+      </nav>
+    </header>
+    <main>
+      <div class="hero">
+        <div class="hero-form">
+          <div class="hero-heading-wrapper">
+            <div class="hero-heading">
+              We need a few more details to connect.
+            </div>
+          </div>
+          <div class="email">
+            <div class="input-wrapper">
+              <label for="email">Work email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="akshay.antony@vonnue.com"
+                disabled
+              />
+            </div>
+          </div>
+          <form>
+            <div class="name">
+              <div class="input-wrapper">
+                <label for="first-name">First name</label>
+                <input type="text" id="first-name" required />
+              </div>
+              <div class="input-wrapper">
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" class="input-right" required/>
+              </div>
+            </div>
+            <div class="company-details">
+              <div class="input-wrapper">
+                <label for="company-name">Company name</label>
+                <input type="text" id="company-name" required />
+              </div>
+              <div class="input-wrapper">
+                <label for="last-name">Job title</label>
+                <input type="text" id="last-name" class="input-right" required/>
+              </div>
+            </div>
+            <div class="personal-details">
+              <div class="input-wrapper">
+                <label for="country">Country or region</label>
+                <select name="" id="country">
+                    <option value="">India</option>
+                </select>
+              </div>
+              <div class="input-wrapper">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" class="input-right" autocomplete="tel-area-code" required/>
+              </div>
+            </div>
+
+            <div class="acknowledgement">
+              <input type="checkbox" id="terms" />
+              <label for="terms"
+                >I agree to receiving marketing communications about Notion
+                (optional)</label
+              >
+            </div>
+
+            <button>Next</button>
+          </form>
+        </div>
+
+        <div class="contact-image">
+          <img src="./assets/Newtons_cradle.webp" alt="" />
+        </div>
+      </div>
+    </main>
+
+    <footer>
+        <p>"Using the most AI‑native tools like Notion is an important competitive advantage for us."</p>
+        <img src="./assets/Cursor.svg" alt="">
+    </footer>
+  </body>
+</html>
