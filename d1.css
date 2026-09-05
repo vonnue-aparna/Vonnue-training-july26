@@ -1,0 +1,8 @@
+.accordion {
+    border: 1px solid;
+    width: max-content;
+    margin: 4rem;
+}
+.accordion-summary {
+    display: none;
+}

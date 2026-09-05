@@ -1,0 +1,52 @@
+body {
+    font-size: larger;
+    margin: 0;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: royalblue;
+    height: 8vh;
+    padding: 10px;
+}
+.navbar  nav a{
+    display: inline;
+    text-decoration: none;
+    color: aliceblue;
+}
+.nav-btn {
+    display: none;
+}
+.navbar  nav a::after{
+    content: "|||";
+    display: none;
+}
+
+main{
+    margin: 0;
+    display: block;
+    width: 100px;
+}
+.filler {
+    height: 300vh;
+    
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.filler p {
+    background-color: aqua;
+}
+
+@media (width<700px) {
+    .header nav a{
+        display: none !important;
+    } 
+    .nav-btn {
+        display: block;
+    }
+}
