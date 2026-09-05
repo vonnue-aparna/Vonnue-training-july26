@@ -1,0 +1,111 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-task {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 3px;
+  border: 1px solid black;
+}
+
+.btn-container {
+  margin: 3px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn-container button {
+  padding: 10px;
+  border: 1px solid black;
+  background-color: gold;
+}
+
+.btn-container button:hover {
+  background-color: rgb(255, 51, 0);
+}
+
+.log-container {
+  padding: 5px;
+  margin: 3px;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.task {
+  margin: 3px;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: aliceblue;
+}
+
+.task-addition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+
+#task-name {
+  border: 1px solid black;
+}
+
+.p-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#enter-btn {
+  padding: 10px;
+  border: 1px solid black;
+  background-color: aquamarine;
+}
+
+#close-btn {
+  padding: 10px;
+  border: 1px solid black;
+  background-color: rgb(255, 200, 127);
+}
+
+.dashboard-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 3px;
+}
+
+.dashboard-container {
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid black;
+  width: 100%;
+  background-color: antiquewhite;
+}
