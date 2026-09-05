@@ -18,4 +18,10 @@ export function createStore(initialState: StateType, reducer: ReducerType) {
   function subscribe(fn: () => void) {
     listeners.push(fn);
   }
+
+  return {
+    getState,
+    dispatch,
+    subscribe,
+  };
 }
