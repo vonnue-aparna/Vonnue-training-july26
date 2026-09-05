@@ -2,10 +2,10 @@ let timer;
 export function liveCounter(livecounterDOM){
     
     timer=setInterval(()=>{
-        console.log(livecounterDOM);
+        // console.log(livecounterDOM);
         
         livecounterDOM.textContent=""
-        console.log(Date.now());
+        // console.log(Date.now());
         livecounterDOM.append(Date.now())
     },300)
 

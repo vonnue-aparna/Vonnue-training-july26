@@ -1,12 +1,14 @@
 import { renderTime } from "./renderTime.js";
 import { liveCounter,endLiveCounter } from "./liveCounter.js";
+import { reducer } from "./Timerlogs/reducer.js";
+import { updatelog } from "./Timerlogs/state.js";
 
 console.log("Hello");
 const startTimer=document.getElementById("start-timer")
-
 const stopTimer=document.getElementById("stop-timer")
 const displayElpasedTime=document.getElementById("display-time")
 const liveTimerDOM=document.getElementById("live-counter")
+const sectionlogs=document.getElementById("logs")
 
 let elapsedTime=null
 let startTime=null
@@ -15,15 +17,31 @@ startTimer.addEventListener("click",()=>{
     startTime=Date.now()
     startTimer.setAttribute("disabled","true")
     liveCounter(liveTimerDOM)
+    reducer.STARTTIME(startTime)
     // console.log(startTime);
 })
 
 stopTimer.addEventListener("click",()=>{
-    endTime=Date.now()
-    startTimer.removeAttribute("disabled","false")
-    findElapsedTime()
-    endLiveCounter()
-    // console.log(endTime);
+    if(startTime){
+        endTime=Date.now()
+        startTimer.removeAttribute("disabled")
+        
+        endLiveCounter()
+        // console.log("Endtime",endTime);
+        
+        let task_name=prompt("Enter Task Name")
+        if(!task_name){
+            task_name="Unidentified"
+        }
+        
+        console.log(endTime);
+        reducer.ENDTIME(endTime,task_name,endTime-startTime)
+        reducer.DISPLAY()
+        findElapsedTime()
+        reducer.DOM(sectionlogs)
+        reducer.UPDATE()
+        updatelog()
+    }
 })
 
 function findElapsedTime(){
@@ -38,6 +56,19 @@ function findElapsedTime(){
         console.warn("Start-Stop click logic fail");
     }
 }
+
+window.addEventListener("DOMContentLoaded",()=>{
+    // localStorage.clear()
+    const json=JSON.parse(localStorage.getItem("logs"))
+    console.log(json);
+    updatelog()
+    if(json){
+
+        json.forEach(log => {
+            reducer.RELOAD(sectionlogs,log)
+        });
+    }
+})
 
 // const DateObject = new Date()
 // console.log(DateObject);
