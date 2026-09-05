@@ -12,10 +12,23 @@
 
 export function addAppointment(state, appointment) {
     let newState={ ...state }
-    newState.appointments=[...newState.appointments]
-    newState.appointments.push(appointment);
-    return newState;
+
+    try{
+
+        newState.appointments=[...newState.appointments]
+        newState.appointments.push(appointment);
+        return newState;
+    }catch(err){
+        newState.appointments=[appointment];
+        return newState;
+        console.log(err);
+        
+    }
 }
+
+let state={appointments:[]}
+console.log(addAppointment(state,"Doctor"));
+
 
 // Issue: The state updater function directly modifies the existing state array instead of returning a fresh copy.
 // Reason : push() operation was directly applied of state (which must not be mutated)
