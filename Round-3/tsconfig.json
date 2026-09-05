@@ -1,0 +1,9 @@
+{
+    "compilerOptions":{
+        "strict":true,
+        "module":"es2022",
+        "target":"es2022",
+        "rootDir":"js",
+        "outDir":"dist"
+    },
+}

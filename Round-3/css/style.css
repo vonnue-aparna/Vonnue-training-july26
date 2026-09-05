@@ -1,0 +1,9 @@
+.modal{
+    position: absolute;
+    inset:0;
+    background-color:red;
+}
+
+.task-container{
+    border:1px dotted black;
+}
