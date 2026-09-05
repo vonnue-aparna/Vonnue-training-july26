@@ -26,5 +26,9 @@ export function createRouter(store: StoreType) {
     });
   }
 
+  window.addEventListener("popstate", () => {
+    changeRoute();
+  });
+
   return { register, navigate, changeRoute };
 }
