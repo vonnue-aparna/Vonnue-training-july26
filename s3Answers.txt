@@ -1,0 +1,132 @@
+A1.
+#nav .menu li a { color: blue; }   --> (0,1,0,0)
+nav ul li a.active { color: red; } --> (0,0,0,1)
+a { color: green !important; }     --> (1,0,0,0)
+--> Here  the link colour will be green , because it has !important to state that this rule has highest specificity
+
+
+A2.
+With box-sizing: content-box  --> 370px
+With box-sizing: border-box  --> 300px
+--> The total horizondal width is width plus padding*2 plus boprder*2 margin*2 with content-box but with border-box all these come inside the width so 300px
+
+A3.
+--> <section> tag is used for semantic sectioning of contents in the webpage.
+--> <article> tag is ussed when a particular content is a article or it is can be used independly by others which makes it good for sharing convention.
+-->
+<section>
+<h2> article</h2>
+<p> artcle content</p>
+</section>
+here a content that is to be shared or public is not within article
+
+-->
+<article>
+<nav>
+nav contents
+</nav>
+</article>
+here instead of partitioning to a section it is in article which is not intended to be shared
+
+A4.
+This can be done with both flexBox and grid.
+for flexBox
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content:stretch
+}
+.sidebar {
+    width:250px
+}
+
+for grid
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+By functionality flexbox is enough, but I would choose grid here because of the sidebar width preferences which makes it a better to work on.
+
+
+A5.
+The colour for word nseted inside span will be orange.
+overall body colour is black, it is overrided by the .card rule then .card p inherits from card, then after that .card p .highlight is assigned orange, nothing else matters.
+
+
+A6.
+There is no alt attribute for picture, it should be there for explanation
+input tag has no label
+no span inside the div
+the div should be a button rather than a div
+aria-controls for knowing buton controls form
+
+
+
+A7.
+A webpage can contain different information on different layout according to its width height etc..
+On a mobile which is a less width device, normally less wide content is used means the layout is set to minimal
+On a desktop window the screen has a vast width which allows us to design big layouts
+
+On desktop first it is trimmed down for mobile compatibility where an already added content or layout is stripped down to its making a lot of styles overriden when the media queries works
+So attempting mobile first means building something smaller and adding bigger layouts adding columns and contents for desktop, in this approach a lot of styles are added than overriden
+
+.grid-container {
+    grid-template-columns: 1fr;
+}
+@media (min-width:800px){
+    .grid-container {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width:1440px){
+    .grid-container {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+
+A8.
+rem for a structured page, where all the typography matters, rem is relative to the base font-size of the html element
+px when the viewport has a fixed dimension, example a device with 480px * 780px etc.. where the pixel distance of width and height is fixed.
+% when it is needed to be adjusted according to the parent element
+
+When someone tries ti increase the browsers default font size, if the type scale is hardcoded in px the font size will not increase, because the fonts are sized in terms of pixels, they will not increase like a pixel on the screen cannot be increased in size
+
+
+A9.
+Red will not render above blue.
+Red div is will be placed relativley to its parent element which is .parent-a.
+Blue div is not a child of .parent-a hence it will be place relative to its parent, in this case may be another div or the body element.
+It will be overlapped if there are siblings or child of same parent accordingto their inset values.
+
+
+
+A10.
+No answer.
+
+
+A11.
+<div class="container>
+    <p class="rr"> People</p>
+    <p class="rr"> People</p>
+    <p class="rr"> People</p>
+    <p class="rr"> People</p>
+    <p class="rr"> People</p>
+</div>
+
+.rr:nth-of-type(1) +
+.rr::before {
+            content: "gotcha";
+}
+
+.container:nth-child(1) +
+.rr::before {
+            content: "gotcha";
+}
+
+
+A12.
+No answer.
+
+
+
