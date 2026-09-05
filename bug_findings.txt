@@ -1,0 +1,47 @@
+1. Priya Nair card
+Category - The div container for Priya Nair coard is not closed(HTML Syntax)
+Fix - </div> is added
+
+2. Sam Okafor card
+Category - The div with class badge is placed inside p tag (HTML Semantics)
+Fix - the div is moved outside to the p's sibling element
+
+3. Images in cards
+Category - The images in the cards has no alt attribute (HTML Semantics)
+Fix - alt attribute is added with the correspond details
+
+4. Ids of cards
+Category - Id of all cards in the card-grid are same (HTML Semantics)
+Fix - Give distinct Id for every card
+
+5. contact-form div
+Category - Absence of form tag
+Fix - Add a form tag enclosing input tags
+
+6. input tags
+Category - input tags lack labels
+Fix -  add label tags
+
+7. card id selector
+Category - id is now distinct for each card
+Fix - change #cards to #cards1, #cards2, #cards3
+
+8. class submit-btn
+Category - padding and border-radius on the same line
+Fix - MOve both of them to new line
+
+9. Logo
+Category - logo vonnue is not visible due to insufficient colour contrast ratio
+Fix - add colour to logo to be visible
+
+10. .target . urgent style
+Category - This selector has style "top: -8px;, right: -8px;" but it doesn't matter because their position is defaultly block
+Fix - remove those rules (commented)
+
+11. badge for Sam Okafor
+Category - According to pattern followed by other cards the badge class div lacks tag class for corresponded styles and badge class dont have any styles
+Fix - add tag class
+
+12. @media 
+Category - @media works wheather condition is true or false
+Fix - flex-wrap is not needed in this case due to the card number (pushed to end of the css file)
