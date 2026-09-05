@@ -9,7 +9,10 @@ type StateType = {
   appointments: AppointmentType[];
 };
 
-function addAppointment(state: StateType, appointment: AppointmentType) {
+function addAppointment(
+  state: StateType,
+  appointment: AppointmentType,
+): StateType {
   // removed because it was modifing the existing state
   // state.appointments.push(appointment);
 
