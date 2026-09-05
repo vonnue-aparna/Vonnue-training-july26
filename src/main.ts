@@ -41,6 +41,8 @@ function loadState() {
 }
 
 const initialState = loadState();
+
+//initalising store
 const store = createStore(initialState, reducer);
 function renderFN() {
   const route = store.getState().route;
@@ -59,9 +61,14 @@ function renderFN() {
 }
 store.subscribe(renderFN);
 
+//initalising router
 const router = createRouter(store);
+
+//registering routes
 router.register("/dashboard");
 router.register("/track");
+
+// removed the defalut behaviour of anchor tags
 aTags.forEach((aTag) => {
   aTag.addEventListener("click", (e) => {
     e.preventDefault();
@@ -69,3 +76,5 @@ aTags.forEach((aTag) => {
     router.navigate(href);
   });
 });
+
+router.navigate(store.getState().route);
