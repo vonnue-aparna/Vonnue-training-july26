@@ -27,3 +27,10 @@ function loadAppointments() {
 // Issue: The application crashes entirely if the user's localStorage data is corrupted, empty, or missing.
 // Reason : No mechanisms to regulate missing data, malinformed JSON or incorrect datatype
 // Fix : Added a try catch block , to find error and safely return []
+
+
+localStorage.setItem("appointments",JSON.stringify({"Christo":"Doctor"}))
+console.log(loadAppointments());
+
+// Manually verified task16.js using html logs
+// The bug is fixed
