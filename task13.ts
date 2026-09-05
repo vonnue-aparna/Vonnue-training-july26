@@ -9,7 +9,7 @@ type StateType = {
   appointments: AppointmentType[];
 };
 
-function addAppointment(
+export function addAppointment(
   state: StateType,
   appointment: AppointmentType,
 ): StateType {
@@ -20,3 +20,5 @@ function addAppointment(
   if (!appointment) return state;
   return { ...state, appointments: [...state.appointments, appointment] };
 }
+
+// because it is strictly typed the funtion doest not accept empty state and undefined appointments
