@@ -13,10 +13,15 @@ export type StateType = {
   route: string;
 };
 
-export type ActionType = {
-  type: "SET_ROUTE";
-  payload: string;
-};
+export type ActionType =
+  | {
+      type: "SET_ROUTE";
+      payload: string;
+    }
+  | {
+      type: "ADD_TASK";
+      payload: TaskType;
+    };
 
 export type ReducerType = (state: StateType, action: ActionType) => StateType;
 

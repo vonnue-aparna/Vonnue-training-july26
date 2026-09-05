@@ -8,5 +8,11 @@ export function reducer(state: StateType, action: ActionType): StateType {
         route: action.payload,
       };
     }
+    case "ADD_TASK": {
+      return {
+        ...state,
+        tasks: [...state.tasks, action.payload],
+      };
+    }
   }
 }

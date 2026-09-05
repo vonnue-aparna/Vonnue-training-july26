@@ -12,9 +12,9 @@ export function renderTrack(store: StoreType): HTMLElement {
   let interval: number;
   let pauseClicked = true;
   let time = 0;
-  let startTime;
-  let pauseTime;
-  let endTime;
+  let startTime: number;
+  let pauseTime: number;
+  let endTime: number;
 
   const addDiv = document.createElement("div");
   addDiv.className = "add-task";
@@ -59,15 +59,21 @@ export function renderTrack(store: StoreType): HTMLElement {
     section.style.display = "none";
   });
 
+  const tasks = store.getState().tasks;
+  let taskList = ``;
+
+  tasks.forEach((task) => {
+    taskList += ` <article class="task">
+      <h3>${task.taskName}</h3>
+      <p>StartTime: ${task.startTime}</p>
+      <p>EndTime: ${task.endTime}</p>
+      <p>TotalDuration: ${task.totalDuration}</p>
+    </article>`;
+  });
+
   const logDiv = document.createElement("div");
   logDiv.className = "log-container";
-  logDiv.innerHTML = ` <article class="task">
-      <h3>Task Name</h3>
-      <p>StartTime:</p>
-      <p>EndTime:</p>
-      <p>TotalDuration:</p>
-    </article>`;
-
+  logDiv.innerHTML = taskList;
   section.appendChild(addDiv);
   section.appendChild(logDiv);
 
@@ -84,12 +90,25 @@ export function renderTrack(store: StoreType): HTMLElement {
     "#task-name",
   ) as HTMLInputElement;
 
+  // this function add task to the task store
   sectionModal.querySelector("#enter-btn")?.addEventListener("click", () => {
     console.log("enter btn clicked");
     const value = inputField.value;
     console.log(value);
+
+    const totalDuration = (endTime - startTime) / 1000;
+    store.dispatch({
+      type: "ADD_TASK",
+      payload: {
+        taskName: value,
+        startTime: startTime,
+        endTime: endTime,
+        totalDuration: totalDuration,
+      },
+    });
   });
 
+  // this function closes the modal and reset the input field
   sectionModal.querySelector("#close-btn")?.addEventListener("click", () => {
     console.log("close btn clicked");
     section.style.display = "block";

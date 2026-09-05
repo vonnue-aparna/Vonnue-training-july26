@@ -10,6 +10,8 @@ export function createStore(initialState: StateType, reducer: ReducerType) {
   function dispatch(action: ActionType) {
     state = reducer(state, action);
 
+    console.log(state);
+
     listeners.forEach((listener) => {
       listener();
     });
