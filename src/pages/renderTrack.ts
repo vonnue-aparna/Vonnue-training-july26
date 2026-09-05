@@ -1,37 +1,103 @@
 import { StoreType } from "../types/timeTypes";
 
 export function renderTrack(store: StoreType): HTMLElement {
+  const mainSection = document.createElement("section");
   const section = document.createElement("section");
-  section.innerHTML = `<div class="track-container">
-        <div class="add-task">
-          <div>TIMER:</div>
-          <div class="btn-container">
-            <button>Start Task</button>
-            <button>Pause Task</button>
-            <button>End Task</button>
-          </div>
-        </div>
-        <div class="log-container">
-          <article class="task">
-            <h3>Task Name</h3>
-            <p>StartTime:</p>
-            <p>EndTime:</p>
-            <p>TotalDuration:</p>
-          </article>
-          <article class="task">
-            <h3>Task Name</h3>
-            <p>StartTime:</p>
-            <p>EndTime:</p>
-            <p>TotalDuration:</p>
-          </article>
-          <article class="task">
-            <h3>Task Name</h3>
-            <p>StartTime:</p>
-            <p>EndTime:</p>
-            <p>TotalDuration:</p>
-          </article>
-        </div>
-      </div>`;
+  section.className = "track-container";
 
-  return section;
+  const sectionModal = document.createElement("section");
+  sectionModal.className = "modal";
+  sectionModal.style.display = "none";
+
+  let interval: number;
+  let pauseClicked = true;
+  let time = 0;
+  let startTime;
+  let pauseTime;
+  let endTime;
+
+  const addDiv = document.createElement("div");
+  addDiv.className = "add-task";
+  addDiv.innerHTML = `<div id="timer">TIMER:</div>
+          <div class="btn-container">
+            <button id="start-btn">Start Task</button>
+            <button id="pause-btn">Pause Task</button>
+            <button id="stop-btn">Stop Task</button>
+          </div>`;
+
+  const timer = addDiv.querySelector("#timer");
+
+  addDiv.querySelector("#start-btn")?.addEventListener("click", () => {
+    console.log("start btn");
+    startTime = Date.now();
+
+    interval = setInterval(() => {
+      if (timer) timer.textContent = `TIMER: ${time} (in seconds)`;
+      time++;
+    }, 1000);
+  });
+
+  addDiv.querySelector("#pause-btn")?.addEventListener("click", () => {
+    pauseTime = Date.now();
+    if (pauseClicked) {
+      clearInterval(interval);
+      pauseClicked = false;
+    } else {
+      interval = setInterval(() => {
+        if (timer) timer.textContent = `TIMER: ${time} (in seconds)`;
+        time++;
+      }, 1000);
+      pauseClicked = true;
+    }
+    console.log("pause btn");
+  });
+
+  addDiv.querySelector("#stop-btn")?.addEventListener("click", () => {
+    endTime = Date.now();
+    console.log("stop btn");
+    sectionModal.style.display = "block";
+    section.style.display = "none";
+  });
+
+  const logDiv = document.createElement("div");
+  logDiv.className = "log-container";
+  logDiv.innerHTML = ` <article class="task">
+      <h3>Task Name</h3>
+      <p>StartTime:</p>
+      <p>EndTime:</p>
+      <p>TotalDuration:</p>
+    </article>`;
+
+  section.appendChild(addDiv);
+  section.appendChild(logDiv);
+
+  sectionModal.innerHTML = `<div class="task-addition">
+          <p class="p-modal">
+            <label>ENTER TASK NAME:</label>
+            <input type="text" required id="task-name" />
+            <button type="submit" id="enter-btn">ADD TASK</button>
+            <button type="submit" id="close-btn">close</button>
+          </p>
+        </div>`;
+
+  const inputField = sectionModal.querySelector(
+    "#task-name",
+  ) as HTMLInputElement;
+
+  sectionModal.querySelector("#enter-btn")?.addEventListener("click", () => {
+    console.log("enter btn clicked");
+    const value = inputField.value;
+    console.log(value);
+  });
+
+  sectionModal.querySelector("#close-btn")?.addEventListener("click", () => {
+    console.log("close btn clicked");
+    section.style.display = "block";
+    sectionModal.style.display = "none";
+    inputField.value = "";
+  });
+
+  mainSection.appendChild(section);
+  mainSection.appendChild(sectionModal);
+  return mainSection;
 }
