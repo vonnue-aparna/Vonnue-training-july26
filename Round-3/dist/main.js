@@ -3,10 +3,16 @@ import { createRouter } from "./router.js";
 import { createStore } from "./storageService.js";
 export let store;
 export let router;
-async function init() {
-    let initialState = [];
+export async function init() {
+    console.log("fetching local data.....");
+    let tasks;
+    let localData = localStorage.getItem("task-data");
+    if (localData) {
+        tasks = JSON.parse(localData);
+    }
+    let initialState = localData ? tasks : [];
     store = createStore(initialState);
-    router = createRouter();
+    let router = createRouter();
     router.register('/', () => renderHomePage());
     router.register('/dashboard', () => renderDashBoard());
     document.querySelectorAll("a").forEach((element) => {

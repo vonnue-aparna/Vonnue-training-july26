@@ -1,6 +1,7 @@
 import { Button } from "./components/button.js";
 import { Modal } from "./components/modal.js";
 import { store } from "./main.js";
+import { calculateDurationInHours } from "./utils/calculateDuration.js";
 let app = document.querySelector(".app");
 export function renderHomePage() {
     app.replaceChildren();
@@ -11,13 +12,17 @@ export function renderHomePage() {
     let count = 0;
     let start_time;
     let end_time;
+    let isTimerRunning;
     let startBtn = Button('start', () => {
+        isTimerRunning = true;
         console.log('start button pressed');
         start_time = Date.now();
         function updateCounter() {
             console.log("inside update counter");
             count = 0;
             function update() {
+                if (!isTimerRunning)
+                    return;
                 count++;
                 console.log(count);
                 requestAnimationFrame(update);
@@ -30,6 +35,9 @@ export function renderHomePage() {
         updateCounter();
     });
     let pauseBtn = Button('pause', () => {
+        if (!isTimerRunning)
+            return;
+        isTimerRunning = false;
         end_time = Date.now();
         let modal = Modal(start_time, end_time);
         function stopCounter() {
@@ -42,13 +50,21 @@ export function renderHomePage() {
     app.appendChild(startBtn);
     app.appendChild(pauseBtn);
 }
-export function renderDashBoard() {
-    console.log('dashboard home');
+export async function renderDashBoard() {
+    console.log('rendering dashboard.....');
     app.replaceChildren();
+    let data;
+    let localStorageData = localStorage.getItem("task-data");
+    if (localStorageData) {
+        data = await JSON.parse(localStorageData);
+        console.log("stored data", data);
+    }
     let state = store.getState();
+    console.log(state, "in renderdash board");
     state.forEach(task => {
         let s = new Date(task.startTime);
         let e = new Date(task.endTime);
+        let hours = calculateDurationInHours(s, e);
         let sec = e.getSeconds() - s.getSeconds();
         let div = document.createElement("div");
         div.innerHTML = `
@@ -56,9 +72,11 @@ export function renderDashBoard() {
                 <h3>${task.task_name}</h3>
                 <h6>Start time: ${task.startTime}</h6>
                 <h6>End time: ${task.endTime}</h6>
-                <p>duration: ${sec} sec</p>
+                <p>duration in sec: ${sec} sec</p>
+                <p>duration in sec: ${hours} hours</p>
             </div>
         `;
+        div.classList.add('task-container');
         app.appendChild(div);
     });
 }

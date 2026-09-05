@@ -5,5 +5,5 @@
         "target":"es2022",
         "rootDir":"js",
         "outDir":"dist"
-    }
+    },
 }

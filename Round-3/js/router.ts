@@ -1,4 +1,5 @@
-import { Route } from "./types";
+import { init } from "./main.js";
+import { Route } from "./types.js";
 
 export function createRouter() {
     let routes:Route[] = []
@@ -24,6 +25,8 @@ export function createRouter() {
     }
 
     window.onload = () => {
+        console.log("onloading...")
+        init()
         route()
     }
 

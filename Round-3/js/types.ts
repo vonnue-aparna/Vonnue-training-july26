@@ -32,3 +32,8 @@ export type Router = {
     navigate: (path: string) => void;
     route: () => void;
 }
+
+export type TimerState = {
+    start_time: number,
+    isCompleted: false;
+}

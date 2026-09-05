@@ -15,6 +15,7 @@ export function createStore(initialState: Task[]) {
             listener()
         })
         localStorage.setItem("task-data",JSON.stringify(state))
+
         return state
     }
 

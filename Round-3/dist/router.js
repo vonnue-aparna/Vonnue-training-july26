@@ -1,3 +1,4 @@
+import { init } from "./main.js";
 export function createRouter() {
     let routes = [];
     function register(path, component) {
@@ -19,6 +20,8 @@ export function createRouter() {
             route.component();
     }
     window.onload = () => {
+        console.log("onloading...");
+        init();
         route();
     };
     window.addEventListener("popstate", () => {

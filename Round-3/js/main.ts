@@ -7,12 +7,19 @@ import { Router, Store, Task } from "./types.js";
 export let store: Store;
 export let router: Router;
 
-async function init() {
+export async function init() {
 
-    let initialState: Task[] = []
+    console.log("fetching local data.....")
+    let tasks;
+    let localData = localStorage.getItem("task-data")
+    if (localData) {
+        tasks = JSON.parse(localData)
+    }
+
+    let initialState: Task[] = localData ? tasks : []
     
     store = createStore(initialState)
-    router = createRouter()
+    let router = createRouter()
     router.register('/', () => renderHomePage())
     router.register('/dashboard', () => renderDashBoard())
 
