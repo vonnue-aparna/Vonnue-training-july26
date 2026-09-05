@@ -10,7 +10,7 @@ type Appointment = {
 };
 
 async function saveAll(appointments: Appointment[]) {
-  if (appointments) {
+  if (appointments && appointments.length > 0) {
     for (let i = 0; i < appointments.length; i++) {
       let appointment = appointments[i];
       await saveAppointment(appointment);
