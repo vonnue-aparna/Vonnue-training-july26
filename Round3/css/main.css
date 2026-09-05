@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: rgb(26, 220, 217);
+  gap: 30px;
+  padding: 30px 0;
+}
+
+h2,
+h3 {
+  display: flex;
+  justify-content: center;
+  background: magenta;
+  padding: 30px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: greenyellow;
+  padding: 30px 0;
+}
