@@ -14,7 +14,7 @@
 // ●​ Edge Case: If getCustomer throws an error, the chain should gracefully catch or
 // propagate it.
 
-function loadAppointment(id) {
+export function loadAppointment(id) {
     return getAppointment(id).then(appointment => {
         return getCustomer(appointment.customerId);
     }).then(customer => {

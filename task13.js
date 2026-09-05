@@ -10,7 +10,7 @@
 // oldState.appointments.
 // ●​ Edge Case: Passing an empty state object or an undefined appointments array.
 
-function addAppointment(state, appointment) {
+export function addAppointment(state, appointment) {
     let newState={ ...state }
     newState.appointments=[...newState.appointments]
     newState.appointments.push(appointment);
