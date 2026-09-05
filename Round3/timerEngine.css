@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Courier New', Courier, monospace;
+}
+
+header{
+
+    background-color: aliceblue;
+   
+}
+header div{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+header h1{
+    color: rgb(119, 112, 112);
+}
+
+#timerEngine{
+    background-color: whitesmoke;
+    height: 100px;
+    display: flex;
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    background-color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8%;
+    margin-top: 30px;
+}
+
+.btn{
+    display: flex;
+    justify-content: space-between;
+}
+#current p{
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgb(240, 235, 225);
+}
+
