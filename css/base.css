@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+    /* matters where wide contents are too wide that their padding goes out of page */
+}
+body {
+    margin: 0;
+}

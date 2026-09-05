@@ -1,0 +1,113 @@
+
+.logo {
+    border: 2px solid white;
+    border-radius: 9px;
+    padding: 0.5rem;
+    background-color:chartreuse;
+}
+
+.footer-logo{
+    position: relative;
+    padding: 0.5rem;
+   
+}
+
+.footer-logo span {
+
+    border: 2px solid white;
+    border-radius: 9px;
+    padding: 0.5rem;
+    background-color:chartreuse;
+}
+
+.logo span {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 2rem;
+}
+
+
+
+.hero-title {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.billing{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.billing span {
+    border: 2px solid black;
+    padding: 1rem 3rem;
+    border-radius: 5rem;
+    background-color: rgb(0 0 0 / 0.5);
+    color: white;
+
+}
+
+.active {
+    outline: 1px solid wheat;
+    background-color: rgba(50, 98, 116, 0.5) !important;
+    box-shadow: 2px 2px 5px salmon;
+}
+
+.price-title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+details {
+    padding: 3vh;
+    border-bottom: 1px solid royalblue;
+}
+
+
+.nav-btn {
+    display: none;
+}
+
+
+
+.try-btn {
+    width: 80%;
+    justify-self: flex-end;
+    align-self: center;
+    position: absolute;
+    bottom: 0.5rem;
+    background-color: royalblue;
+    color: white;
+    border-radius: 5px;
+    border-color: transparent;
+}
+
+/* .try-btn:focus-visible {
+    outline: 7px rgb(2, 14, 174);
+} */
+
+@media (max-width:600px) {
+    .navbar {
+        display: none;
+    }
+    .nav-btn {
+        display: block;
+    }
+    .billing{
+        display: flex;
+        flex-direction: column;
+    }
+}
