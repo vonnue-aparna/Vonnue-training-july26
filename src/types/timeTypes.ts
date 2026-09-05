@@ -1,15 +1,15 @@
 export type TaskType = {
   taskName: string;
-  startTime: string;
-  endTime: string;
-  totalDuration: string;
+  startTime: number;
+  endTime: number;
+  totalDuration: number;
 };
 
 export type StateType = {
   tasks: TaskType[];
-  startTime: string;
-  pauseTime: string;
-  endTime: string;
+  startTime: number;
+  pauseTime: number;
+  endTime: number;
   route: string;
 };
 
