@@ -10,7 +10,7 @@ console.log("hello");
 const aTags = document.querySelectorAll(".nav-link");
 const app = document.getElementById("app") as HTMLElement;
 
-const initialState: StateType = {
+const firstState: StateType = {
   tasks: [
     {
       taskName: "task1",
@@ -31,6 +31,16 @@ const initialState: StateType = {
   route: "/dashboard",
 };
 
+// for local storage state loading
+function loadState() {
+  const savedSate = localStorage.getItem("time-tracker");
+  if (savedSate) {
+    return JSON.parse(savedSate);
+  }
+  return firstState;
+}
+
+const initialState = loadState();
 const store = createStore(initialState, reducer);
 function renderFN() {
   const route = store.getState().route;

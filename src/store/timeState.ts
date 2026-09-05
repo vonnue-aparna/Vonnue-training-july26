@@ -12,6 +12,8 @@ export function createStore(initialState: StateType, reducer: ReducerType) {
 
     console.log(state);
 
+    localStorage.setItem("time-tracker", JSON.stringify(state));
+
     listeners.forEach((listener) => {
       listener();
     });

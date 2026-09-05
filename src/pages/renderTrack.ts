@@ -27,16 +27,19 @@ export function renderTrack(store: StoreType): HTMLElement {
 
   const timer = addDiv.querySelector("#timer");
 
+  // this is used to start the timer
   addDiv.querySelector("#start-btn")?.addEventListener("click", () => {
     console.log("start btn");
     startTime = Date.now();
 
+    // this code implements the live timer
     interval = setInterval(() => {
       if (timer) timer.textContent = `TIMER: ${time} (in seconds)`;
       time++;
     }, 1000);
   });
 
+  // this is used to pause the timer
   addDiv.querySelector("#pause-btn")?.addEventListener("click", () => {
     pauseTime = Date.now();
     if (pauseClicked) {
@@ -52,6 +55,7 @@ export function renderTrack(store: StoreType): HTMLElement {
     console.log("pause btn");
   });
 
+  // this is used to stop the timer and display the modal
   addDiv.querySelector("#stop-btn")?.addEventListener("click", () => {
     endTime = Date.now();
     console.log("stop btn");
@@ -65,9 +69,9 @@ export function renderTrack(store: StoreType): HTMLElement {
   tasks.forEach((task) => {
     taskList += ` <article class="task">
       <h3>${task.taskName}</h3>
-      <p>StartTime: ${task.startTime}</p>
-      <p>EndTime: ${task.endTime}</p>
-      <p>TotalDuration: ${task.totalDuration}</p>
+      <p>Start Time: ${task.startTime}</p>
+      <p>End Time: ${task.endTime}</p>
+      <p>Total Duration: ${task.totalDuration}</p>
     </article>`;
   });
 
