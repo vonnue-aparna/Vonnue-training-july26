@@ -1,0 +1,25 @@
+{
+  "name": "vonnue-training-july26",
+  "version": "1.0.0",
+  "description": "This repository is used for training assessments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vonnue-aparna/Vonnue-training-july26.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vonnue-aparna/Vonnue-training-july26/issues"
+  },
+  "homepage": "https://github.com/vonnue-aparna/Vonnue-training-july26#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.0"
+  }
+}
