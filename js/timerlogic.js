@@ -2,6 +2,7 @@ import { renderTime } from "./renderTime.js";
 import { liveCounter,endLiveCounter } from "./liveCounter.js";
 import { reducer } from "./Timerlogs/reducer.js";
 import { updatelog } from "./Timerlogs/state.js";
+import { dashboard } from "./Dashboard/dashboard.js";
 
 console.log("Hello");
 const startTimer=document.getElementById("start-timer")
@@ -9,7 +10,8 @@ const stopTimer=document.getElementById("stop-timer")
 const displayElpasedTime=document.getElementById("display-time")
 const liveTimerDOM=document.getElementById("live-counter")
 const sectionlogs=document.getElementById("logs")
-
+const timersection=document.getElementById("timer")
+const dashboardSection=document.getElementById("dashboards")
 let elapsedTime=null
 let startTime=null
 let endTime=null
@@ -59,6 +61,9 @@ function findElapsedTime(){
 
 window.addEventListener("DOMContentLoaded",()=>{
     // localStorage.clear()
+    if(window.location.hash==""){
+        window.location+="#timer"
+    }
     const json=JSON.parse(localStorage.getItem("logs"))
     console.log(json);
     updatelog()
@@ -68,6 +73,25 @@ window.addEventListener("DOMContentLoaded",()=>{
             reducer.RELOAD(sectionlogs,log)
         });
     }
+    sectionlogs.style.display="block"
+    timersection.style.display="block"
+    dashboardSection.style.display="none"
+})
+
+const dashboard_link=document.getElementById("dashboard_link")
+const timer_link=document.getElementById("timer_link")
+dashboard_link.addEventListener("click",()=>{
+    sectionlogs.style.display="none"
+    timersection.style.display="none"
+    dashboardSection.style.display="block"
+    const json=JSON.parse(localStorage.getItem("logs"))
+    dashboard(dashboardSection,json)
+})
+
+timer_link.addEventListener("click",()=>{
+    sectionlogs.style.display="block"
+    timersection.style.display="block"
+    dashboardSection.style.display="none"
 })
 
 // const DateObject = new Date()
