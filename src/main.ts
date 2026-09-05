@@ -1,5 +1,6 @@
 import { renderDashboard } from "./pages/renderDashboard.js";
 import { renderTrack } from "./pages/renderTrack.js";
+import { createRouter } from "./router/router.js";
 import { reducer } from "./store/reducer.js";
 import { createStore } from "./store/timeState.js";
 import { StateType } from "./types/timeTypes";
@@ -8,13 +9,6 @@ console.log("hello");
 
 const aTags = document.querySelectorAll(".nav-link");
 const app = document.getElementById("app") as HTMLElement;
-
-aTags.forEach((aTag) => {
-  aTag.addEventListener("click", (e) => {
-    e.preventDefault();
-    console.log("a tag clicked");
-  });
-});
 
 const initialState: StateType = {
   tasks: [
@@ -54,3 +48,14 @@ function renderFN() {
   if (app && page) app.replaceChildren(page);
 }
 store.subscribe(renderFN);
+
+const router = createRouter(store);
+router.register("/dashboard");
+router.register("/track");
+aTags.forEach((aTag) => {
+  aTag.addEventListener("click", (e) => {
+    e.preventDefault();
+    const href = aTag.getAttribute("href") || "/dashboard";
+    router.navigate(href);
+  });
+});

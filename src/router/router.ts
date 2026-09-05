@@ -25,4 +25,6 @@ export function createRouter(store: StoreType) {
       }
     });
   }
+
+  return { register, navigate, changeRoute };
 }
