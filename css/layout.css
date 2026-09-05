@@ -1,0 +1,143 @@
+header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: royalblue;
+    align-items: center;
+    z-index: 1;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgb(255, 252, 252);
+}
+.pricing {
+    padding: 2rem 0;
+}
+.pricing-container {
+    display: grid;
+    grid-template-areas: "starter pro enterprise";
+    gap: 10rem;
+}
+.starter{
+    grid-area: starter;
+}
+.pro{
+    grid-area: pro;
+}
+.enterprise{
+    grid-area: enterprise;
+}
+@media (max-width:1024px) {
+    .pricing-container{
+        grid-template-areas: 
+        "starter enterprise"
+        "pro pro pro";
+    }   
+}
+@media (max-width:600px) {
+    .pricing-container{
+        grid-template-areas: 
+        "pro"
+        "starter"
+        "enterprise"; 
+       
+    }   
+    .billing{
+        display: flex;
+        flex-direction: column;
+    }
+    footer {
+         grid-template-areas:
+        "logo logo logo logo"
+        "nav nav nav nav"
+        "cop cop cop cop";
+    }
+}
+
+
+.price-column{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+}
+.reg-column {
+    border: 1px solid rgb(0 0 0 / 0.5);
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: rgb(255 243 174 / 0.5);
+    font-size: 1vw;
+}
+
+.rec-column {
+    border: 1px solid rgb(0 0 0 / 0.5);
+    padding: 3rem;
+    border-radius: 10px;
+    background-color: rgb(255 243 174 / 0.5);
+    font-size: 1.5vw;
+    box-shadow: 1px 1px 8px black;
+}
+
+.faq {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+
+footer {
+    position: static;
+    display: grid;
+    bottom: 0;
+    background-color: antiquewhite;
+    width: 100vw;
+    padding: 10px 2rem;
+    grid-template-areas:
+    "logo nav nav nav"
+    "cop cop cop cop";
+}
+
+@media (max-width:600px) {
+
+    footer {
+         grid-template-areas:
+        "logo logo logo logo"
+        "nav nav nav nav"
+        "cop cop cop cop";
+    }
+}
+
+footer .logo {
+    grid-area: logo;
+}
+
+.footer-links nav ul li {
+    list-style: none;
+    text-decoration: none;
+}
+.footer-links nav ul li a {
+    color: rgb(73, 83, 93);
+    text-decoration: none;
+}
+.footer-links {
+    grid-area: nav;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-copy {
+    grid-area: cop ;
+    display: flex;
+    justify-content: center;
+}
+
