@@ -1,0 +1,12 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33.3333%, 1fr));
+    width: 100vw;
+    height: 100vw;
+}
+.grid-item {
+    background-color: royalblue;
+    width: 30vw;
+    height: 30vw;
+    border: 1px solid;
+}
