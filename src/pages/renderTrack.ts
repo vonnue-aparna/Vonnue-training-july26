@@ -41,26 +41,30 @@ export function renderTrack(store: StoreType): HTMLElement {
 
   // this is used to pause the timer
   addDiv.querySelector("#pause-btn")?.addEventListener("click", () => {
-    pauseTime = Date.now();
-    if (pauseClicked) {
-      clearInterval(interval);
-      pauseClicked = false;
-    } else {
-      interval = setInterval(() => {
-        if (timer) timer.textContent = `TIMER: ${time} (in seconds)`;
-        time++;
-      }, 1000);
-      pauseClicked = true;
+    if (startTime) {
+      pauseTime = Date.now();
+      if (pauseClicked) {
+        clearInterval(interval);
+        pauseClicked = false;
+      } else {
+        interval = setInterval(() => {
+          if (timer) timer.textContent = `TIMER: ${time} (in seconds)`;
+          time++;
+        }, 1000);
+        pauseClicked = true;
+      }
+      console.log("pause btn");
     }
-    console.log("pause btn");
   });
 
   // this is used to stop the timer and display the modal
   addDiv.querySelector("#stop-btn")?.addEventListener("click", () => {
-    endTime = Date.now();
-    console.log("stop btn");
-    sectionModal.style.display = "block";
-    section.style.display = "none";
+    if (startTime) {
+      endTime = Date.now();
+      console.log("stop btn");
+      sectionModal.style.display = "block";
+      section.style.display = "none";
+    }
   });
 
   const tasks = store.getState().tasks;
