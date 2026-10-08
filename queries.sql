@@ -73,3 +73,15 @@ LEFT JOIN payment p ON r.rental_id = p.rental_id
 WHERE vc.name = 'SUV'
 GROUP BY b.branch_id
 ORDER BY total_revenue DESC;
+
+/*
+10. List customers who have rented more than 100 times AND spent more than $25,000 in total, showing
+customer name, total rentals, and total amount spent, ordered by total spent descending.
+*/
+
+SELECT c.first_name, c.last_name, COUNT(r.rental_id), SUM(p.amount) as total_amount
+FROM customer c
+LEFT JOIN rental r ON c.customer_id = r.customer_id
+LEFT JOIN payment p ON r.rental_id = p.rental_id
+GROUP BY c.customer_id
+HAVING SUM(p.amount) > 25000 AND COUNT(r.rental_id) > 100;
