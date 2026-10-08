@@ -13,7 +13,8 @@ export async function listExpenses(category: string | undefined) {
   });
 
   if (flag === 0) {
-    console.log(`Error: not items for the category: ${category}`);
+    if (category !== undefined)
+      console.log(`Error: not items for the category: ${category}`);
   }
 
   if (category === undefined) {

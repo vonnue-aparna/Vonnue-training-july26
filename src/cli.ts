@@ -6,7 +6,6 @@ import { total } from "./lib/total.js";
 async function main() {
   const args = process.argv;
   const command = args.slice(2);
-  console.log(command);
 
   switch (command[0]) {
     case "add": {
@@ -18,8 +17,25 @@ async function main() {
       break;
     }
     case "list": {
-      const category = command[1] || undefined;
-      await listExpenses(category);
+      const length = command.length;
+      let category;
+      if (length === 1 && command[0] === "list") {
+        await listExpenses(category);
+      } else if (
+        length === 2 &&
+        command[0] === "list" &&
+        command[1] === "--category"
+      ) {
+        console.log("use list [--category <name>]");
+      } else if (
+        length === 3 &&
+        command[0] === "list" &&
+        command[1] === "--category" &&
+        command[2]
+      ) {
+        category = command[2];
+        await listExpenses(category);
+      }
       break;
     }
     case "delete": {
