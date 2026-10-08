@@ -5,7 +5,7 @@ FROM customer
 WHERE first_name LIKE 'M%'
 ORDER BY first_name, last_name ASC;
 
--- List all vehicles with a daily rate above $100, showing plate, make, model and daily rate, highest rate first, top 10 only.
+-- 2. List all vehicles with a daily rate above $100, showing plate, make, model and daily rate, highest rate first, top 10 only.
 
 SELECT plate, make, model, daily_rate
 FROM vehicle
