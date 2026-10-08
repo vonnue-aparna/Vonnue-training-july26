@@ -25,3 +25,10 @@ FROM fuel_type ft
 LEFT JOIN vehicle v ON ft.fuel_type_id = v.fuel_type_id
 GROUP BY ft.name
 ORDER BY count_of_vehicle DESC;
+
+-- 5. List every staff member's first name, last name, and branch ID, ordered by branch ID.
+
+SELECT first_name, last_name, branch_id
+FROM staff
+ORDER BY branch_id;
+
