@@ -12,3 +12,8 @@ FROM vehicle
 WHERE daily_rate > 100
 ORDER BY daily_rate DESC
 LIMIT 10;
+
+-- 3. List all distinct vehicle makes in the fleet
+
+SELECT DISTINCT make
+FROM vehicle;
