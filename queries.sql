@@ -118,3 +118,90 @@ GROUP BY
     v.branch_id
 ORDER BY
     total_revenue DESC;
+
+-- Q10
+-- List customers who have rented more than 100 times AND spent more than $25,000 in total, showing customer name, total rentals, and total amount spent, ordered by total spent descending.
+SELECT
+    c.first_name,
+    c.last_name,
+    COUNT(r.rental_id) AS total_rentals,
+    SUM(p.amount) as total_spent
+FROM
+    customer AS c
+    JOIN rental AS r ON c.customer_id = r.customer_id
+    JOIN payment AS p ON r.rental_id = p.rental_id
+GROUP BY
+    c.customer_id,
+    c.first_name,
+    c.last_name
+HAVING
+    COUNT(r.rental_id) > 100
+    AND SUM(p.amount) > 25000
+ORDER BY
+    total_spent DESC;
+
+-- Q11
+-- Transactions. Pick a rental that has not been returned yet (return_date IS NULL). Write a single transaction that sets its return_date and inserts a corresponding late-fee row into payment a  one atomic operation. 
+-- Then demonstrate rollback: force the late-fee insert to fail (for example with a constraint
+-- 
+-- THIS IS A SUCCESS TRANSACTION
+BEGIN;
+
+SELECT
+    *
+FROM
+    rental
+WHERE
+    return_date IS NULL
+LIMIT
+    1;
+
+UPDATE
+SET
+    r.return_date = '2026-08-20 12:00:00'
+FROM
+    rental as r
+WHERE
+    -- founded this id by this query: SELECT * FROM rental WHERE return_date IS NULL LIMIT 1;
+    r.rental_id = 200;
+
+INSERT INTO
+    payment (
+        rental_id,
+        customer_id,
+        staff_id,
+        amount,
+        payment_date
+    )
+VALUES
+    -- got this value from the query: SELECT * FROM rental WHERE rental_id = 200;
+    (200, 270, 2, 200, '2026-08-20 12:00:00');
+
+COMMIT;
+
+--
+-- THIS IS NOT SUCCESS THERE FOR ROLLBACK
+BEGIN;
+
+UPDATE
+SET
+    r.return_date = '2026-08-20 12:00:00'
+FROM
+    rental as r
+WHERE
+    -- this will cause error because there is no rental with id 99999999
+    r.rental_id = 99999999;
+
+INSERT INTO
+    payment (
+        rental_id,
+        customer_id,
+        staff_id,
+        amount,
+        payment_date
+    )
+VALUES
+    -- got this value from the query: SELECT * FROM rental WHERE rental_id = 200;
+    (200, 270, 2, 200, '2026-08-20 12:00:00');
+
+ROLLBACK;
