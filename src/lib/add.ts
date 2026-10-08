@@ -17,6 +17,7 @@ export async function addExpenses(
         category,
         createdAt: new Date(date).toISOString(),
       });
+      console.log("Added expense: 1");
     } else {
       const dataLength = data.length;
 
@@ -28,6 +29,7 @@ export async function addExpenses(
         category,
         createdAt: new Date(date).toISOString(),
       });
+      console.log("Added expense: ", id);
     }
 
     await updateExpenses(data);
