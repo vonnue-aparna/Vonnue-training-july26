@@ -36,13 +36,15 @@ FROM
 -- For every fuel type in the fuel_type table, show the number of vehicles of that fuel type — including fuel types with zero vehicles. Order by vehicle count descending.
 SELECT
     f.name,
-    COUNT(v.vehicle_id)
+    COUNT(v.vehicle_id) as vehicle_count
 FROM
     fuel_type as f
     LEFT JOIN vehicle AS v ON f.fuel_type_id = v.fuel_type_id
 GROUP BY
     f.fuel_type_id,
-    f.name;
+    f.name
+ORDER BY
+    vehicle_count DESC;
 
 -- Q5
 -- List every staff member's first name, last name, and branch ID, ordered by branch ID
