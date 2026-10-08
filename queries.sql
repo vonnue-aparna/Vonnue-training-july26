@@ -84,4 +84,5 @@ FROM customer c
 LEFT JOIN rental r ON c.customer_id = r.customer_id
 LEFT JOIN payment p ON r.rental_id = p.rental_id
 GROUP BY c.customer_id
-HAVING SUM(p.amount) > 25000 AND COUNT(r.rental_id) > 100;
+HAVING SUM(p.amount) > 25000 AND COUNT(r.rental_id) > 100
+ORDER BY total_amount DESC;
