@@ -32,7 +32,7 @@ SELECT payment.customer_id , first_name , last_name FROM payment
 JOIN customer ON payment.customer_id =customer.customer_id
 WHERE amount IS NULL; 
 
-9)git
+9)
 SELECT vehicle.branch_id, SUM(payment.amount) AS total_revenue FROM payment
 JOIN rental ON payment.rental_id = rental.rental_id
 JOIN vehicle ON rental.vehicle_id = vehicle.vehicle_id
