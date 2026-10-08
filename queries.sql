@@ -32,3 +32,12 @@ SELECT first_name, last_name, branch_id
 FROM staff
 ORDER BY branch_id;
 
+-- 6. For each customer, return the total number of rentals and the total amount paid, ordered by total paid descending, top 10 only.
+
+SELECT c.customer_id, c.first_name, c.last_name, COALESCE(SUM(p.amount), 0) as total_amount
+FROM customer c
+LEFT JOIN rental r ON c.customer_id = r.customer_id
+LEFT JOIN payment p ON p.rental_id = r.rental_id
+GROUP BY c.customer_id
+ORDER BY total_amount DESC
+limit 10;
