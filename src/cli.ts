@@ -1,21 +1,19 @@
-import console = require("node:console");
-import readFile = require("node:fs/promises");
-
+import { addExpense, deleteService, listService, totalAmount } from "./service.js";
 function main() {
     // console.log(process.argv[2])
     const command=process.argv[2]
     switch(command){
         case "add":
-            //Function to add
+            addExpense()
             break;
         case "list":
-            //Function to list
+            listService()
             break;
         case "delete":
-            // Delete
+            deleteService()
             break;
         case "total":
-            // total
+            totalAmount()
             break;
         default:
             console.log(`Available commands \n 

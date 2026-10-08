@@ -1,7 +1,7 @@
 import { log } from "node:console"
 import {readFile, writeFile}  from "node:fs/promises"
 // Returns the entire Array to services
-async function readData() : Promise<Expense[]>{
+export async function readData() : Promise<Expense[]>{
     try{
         const expenses=await readFile("./src/EXPENSES_FILE.json","utf-8")
         log(typeof JSON.parse(expenses))
@@ -17,7 +17,7 @@ async function readData() : Promise<Expense[]>{
     }
 }
 
-type Expense = {
+export type Expense = {
     id : number,
     description:string,
     amount : number
@@ -25,13 +25,34 @@ type Expense = {
     createdAt ?: Date
 }
 
-async function writeData(validExpense:Expense) {
+export async function writeData(validExpense:Expense) {
     try{
         const expenses : Expense[]=await readData()
         expenses.push(validExpense)
         log(validExpense)
         await writeFile("./src/EXPENSES_FILE.json",JSON.stringify(expenses,null,2))
         return validExpense
+    }
+    catch(err){
+        if(err instanceof Error){
+            console.error(err.message)
+        }
+    }
+}
+
+export async function deleteData(id:number) {
+     try{
+        const expenses : Expense[]=await readData()
+        let index=0
+        for(let expense of expenses){
+            if(expense.id==id){
+                expenses.splice(index,1)
+                log("Found and deleted")
+            }
+            index++
+        }
+        await writeFile("./src/EXPENSES_FILE.json",JSON.stringify(expenses,null,2))
+        return expenses
     }
     catch(err){
         if(err instanceof Error){
