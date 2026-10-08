@@ -56,3 +56,20 @@ SELECT c.first_name, c.last_name
 FROM customer c
 LEFT JOIN payment p ON c.customer_id = p.customer_id
 WHERE p.customer_id IS NULL;
+
+/*
+9. For each branch, calculate total revenue generated specifically from rentals of'SUV' category vehicles —
+attribute revenue to the branch that owns the rented vehicle (i.e., via vehicle.branch_id), not the
+branch of the staff member who processed the payment. Show branch id and total revenue, sorted by
+revenue, highest to lowest.
+*/
+
+SELECT b.branch_id, SUM(p.amount) as total_revenue
+FROM branch b
+LEFT JOIN vehicle v ON b.branch_id = v.branch_id
+JOIN vehicle_category vc ON v.category_id = vc.category_id
+LEFT JOIN rental r ON v.vehicle_id = r.vehicle_id
+LEFT JOIN payment p ON r.rental_id = p.rental_id
+WHERE vc.name = 'SUV'
+GROUP BY b.branch_id
+ORDER BY total_revenue DESC;
