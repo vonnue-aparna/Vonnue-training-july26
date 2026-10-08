@@ -1,0 +1,20 @@
+{
+  "name": "vonnue-training-july26",
+  "version": "1.0.0",
+  "description": "This repository is used for training assessments",
+  "main": "src/cli.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch" : "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@types/node": "^26.6.4",
+    "node": "^26.11.1"
+  }
+}
