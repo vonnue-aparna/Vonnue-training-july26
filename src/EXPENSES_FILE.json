@@ -1,3 +1,8 @@
 [
-    
+  {
+    "id": 1,
+    "description": "Taxi",
+    "amount": 43,
+    "category": "travel"
+  }
 ]
