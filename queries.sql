@@ -17,3 +17,11 @@ LIMIT 10;
 
 SELECT DISTINCT make
 FROM vehicle;
+
+-- 4. For every fuel type in the fuel_type table, show the number of vehicles of that fuel type — including fuel types with zero vehicles. Order by vehicle count descending.
+
+SELECT ft.name, COUNT(v.fuel_type_id) as count_of_vehicle
+FROM fuel_type ft
+LEFT JOIN vehicle v ON ft.fuel_type_id = v.fuel_type_id
+GROUP BY ft.name
+ORDER BY count_of_vehicle DESC;
