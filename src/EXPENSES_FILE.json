@@ -1,8 +1,14 @@
 [
   {
     "id": 1,
-    "description": "Taxi",
-    "amount": 43,
-    "category": "travel"
+    "description": "Taxi to airport",
+    "category": "Travel",
+    "amount": 42
+  },
+  {
+    "id": 1,
+    "description": "Taxi to airport back",
+    "category": "Travel",
+    "amount": 39
   }
 ]

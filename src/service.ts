@@ -19,7 +19,7 @@ export async function addExpense(){
     }
     if(desc && id && category && amount){
         const expense : Expense={
-            id:id,
+            id:id++,
             description:desc,
             category:category,
             amount : +(amount)
@@ -33,7 +33,7 @@ export async function addExpense(){
 
 export async function listService() {
     const expenses=await readData()
-    if(expenses.length!=0){
+    if(expenses.length==0){
         log("No expenses in the file")
         exit(1)
     }
@@ -54,7 +54,7 @@ export async function listService() {
 
 export async function deleteService() {
     const expenses=await readData()
-    if(expenses.length!=0){
+    if(expenses.length==0){
         log("No expenses in the file")
         exit(1)
     }
@@ -83,7 +83,7 @@ export async function deleteService() {
 
 export async function totalAmount() {
     const expenses=await readData()
-    if(expenses.length!=0){
+    if(expenses.length==0){
         log("No expenses in the file")
         exit(1)
     }
