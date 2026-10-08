@@ -41,3 +41,18 @@ LEFT JOIN payment p ON p.rental_id = r.rental_id
 GROUP BY c.customer_id
 ORDER BY total_amount DESC
 limit 10;
+
+-- 7. List vehicle categories with more than 20 vehicles, showing category name and vehicle count, sorted by count descending.
+
+SELECT vc.name, COUNT (v.vehicle_id) as vehicle_count
+FROM vehicle_category vc
+LEFT JOIN vehicle v ON vc.category_id = v.category_id
+GROUP BY vc.category_id
+ORDER BY vehicle_count DESC;
+
+-- 8. Find all customers who have never made a payment. Return customer ID, first name, and last name
+
+SELECT c.first_name, c.last_name
+FROM customer c
+LEFT JOIN payment p ON c.customer_id = p.customer_id
+WHERE p.customer_id IS NULL;
