@@ -88,3 +88,33 @@ GROUP BY
     vc.name
 ORDER BY
     vehicle_count DESC;
+
+-- Q8
+-- Find all customers who have never made a payment. Return customer ID, first name, and last name.
+SELECT
+    c.customer_id,
+    c.first_name,
+    c.last_name
+FROM
+    customer AS c
+    LEFT JOIN payment AS p ON c.customer_id = p.customer_id
+WHERE
+    p.payment_id IS NULL;
+
+-- Q9
+-- For each branch, calculate total revenue generated specifically from rentals of 'SUV' category vehicles —attribute revenue to the branch that owns the rented vehicle (i.e., via vehicle.branch_id), 
+-- not the branch of the staff member who processed the payment. Show branch id and total revenue, sorted by revenue, highest to lowest.
+SELECT
+    v.branch_id,
+    SUM(p.amount) AS total_revenue
+FROM
+    vehicle AS v
+    JOIN vehicle_category AS vc ON v.category_id = vc.category_id
+    JOIN rental AS r ON v.vehicle_id = r.vehicle_id
+    JOIN payment AS p ON r.rental_id = p.rental_id
+WHERE
+    vc.name = 'SUV'
+GROUP BY
+    v.branch_id
+ORDER BY
+    total_revenue DESC;
