@@ -1,0 +1,18 @@
+[{
+    "id":1,
+    "description":"Cauliflower Half kg",
+    "amount":200,
+    "category":"Vegetables" 
+},
+{
+    "id":2,
+    "description":"Apples of One Basket",
+    "amount":800,
+    "category":"Fruits"
+},
+{
+    "id":3,
+    "description":"Glue -10Packets",
+    "amount":300,
+    "category":"Stationary-items"
+}]
