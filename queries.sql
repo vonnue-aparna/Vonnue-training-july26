@@ -88,6 +88,8 @@ FROM
 GROUP BY
     vc.category_id,
     vc.name
+HAVING
+    COUNT(v.vehicle_id) > 20
 ORDER BY
     vehicle_count DESC;
 
